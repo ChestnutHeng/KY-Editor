@@ -37,3 +37,8 @@ void MainWindow::uiset()
 {
     statusBar() ;
 }
+
+void MainWindow::on_actionOpen_File_Ctrl_O_triggered()
+{
+    
+}

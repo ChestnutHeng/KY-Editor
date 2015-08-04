@@ -17,6 +17,7 @@ void MainWindow::on_actionBlack_triggered()
     ui -> plainTextEdit -> setPalette(p);
     p.setColor(QPalette::Background,QColor(100,100,100));
     this-> setPalette(p);
+    ui -> statusBar-> setPalette(p);
 }
 
 void MainWindow::on_actionWhite_triggered()
@@ -29,4 +30,6 @@ void MainWindow::on_actionWhite_triggered()
     ui -> plainTextEdit -> setPalette(p);
     p.setColor(QPalette::Background,QColor(255,255,255));
     this-> setPalette(p);
+    ui -> statusBar-> setPalette(p);
+
 }

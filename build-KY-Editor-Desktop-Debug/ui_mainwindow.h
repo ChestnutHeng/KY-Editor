@@ -19,9 +19,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
-#include <QtWidgets/QScrollBar>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -43,7 +41,6 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QPlainTextEdit *plainTextEdit;
-    QScrollBar *verticalScrollBar;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -51,7 +48,6 @@ public:
     QMenu *menuColors;
     QMenu *menuBuild;
     QMenu *menuHelp;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -89,16 +85,18 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         plainTextEdit = new QPlainTextEdit(centralWidget);
         plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
+        QFont font;
+        font.setPointSize(14);
+        font.setBold(true);
+        font.setWeight(75);
+        plainTextEdit->setFont(font);
+        plainTextEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::IBeamCursor)));
+        plainTextEdit->setMouseTracking(true);
+        plainTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         plainTextEdit->setTabChangesFocus(false);
         plainTextEdit->setBackgroundVisible(false);
 
         horizontalLayout->addWidget(plainTextEdit);
-
-        verticalScrollBar = new QScrollBar(centralWidget);
-        verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
-        verticalScrollBar->setOrientation(Qt::Vertical);
-
-        horizontalLayout->addWidget(verticalScrollBar);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -117,9 +115,6 @@ public:
         menuHelp = new QMenu(menuBar);
         menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
@@ -165,6 +160,9 @@ public:
         actionSyntex->setText(QApplication::translate("MainWindow", "Syntex", 0));
         actionBlack->setText(QApplication::translate("MainWindow", "Black", 0));
         actionWhite->setText(QApplication::translate("MainWindow", "White", 0));
+#ifndef QT_NO_STATUSTIP
+        plainTextEdit->setStatusTip(QString());
+#endif // QT_NO_STATUSTIP
         menuFile->setTitle(QApplication::translate("MainWindow", "File(&F)", 0));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit(&E)", 0));
         menuView->setTitle(QApplication::translate("MainWindow", "View(&V)", 0));
