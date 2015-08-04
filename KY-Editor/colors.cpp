@@ -9,6 +9,8 @@
 
 void MainWindow::on_actionBlack_triggered()
 {
+    ui->actionBlack->setChecked(true);
+    ui->actionWhite->setChecked(false);
     QPalette p = palette();
     p.setColor(QPalette::Base,QColor(0,0,0));
     p.setColor(QPalette::Text,QColor(180,180,180));
@@ -22,6 +24,8 @@ void MainWindow::on_actionBlack_triggered()
 
 void MainWindow::on_actionWhite_triggered()
 {
+    ui->actionWhite->setChecked(true);
+    ui->actionBlack->setChecked(false);
     QPalette p = palette();
     p.setColor(QPalette::Base,QColor(255,255,255));
     p.setColor(QPalette::Text,QColor(0,0,0));

@@ -38,6 +38,7 @@ public:
     QAction *actionSyntex;
     QAction *actionBlack;
     QAction *actionWhite;
+    QAction *actionQuit;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QPlainTextEdit *plainTextEdit;
@@ -59,7 +60,7 @@ public:
         actionNew_File_Ctrl_N->setObjectName(QStringLiteral("actionNew_File_Ctrl_N"));
         actionOpen_File_Ctrl_O = new QAction(MainWindow);
         actionOpen_File_Ctrl_O->setObjectName(QStringLiteral("actionOpen_File_Ctrl_O"));
-        actionOpen_File_Ctrl_O->setShortcutContext(Qt::WidgetWithChildrenShortcut);
+        actionOpen_File_Ctrl_O->setShortcutContext(Qt::WindowShortcut);
         actionSave_Ctrl_s = new QAction(MainWindow);
         actionSave_Ctrl_s->setObjectName(QStringLiteral("actionSave_Ctrl_s"));
         actionSave_As = new QAction(MainWindow);
@@ -76,8 +77,12 @@ public:
         actionSyntex->setObjectName(QStringLiteral("actionSyntex"));
         actionBlack = new QAction(MainWindow);
         actionBlack->setObjectName(QStringLiteral("actionBlack"));
+        actionBlack->setCheckable(true);
         actionWhite = new QAction(MainWindow);
         actionWhite->setObjectName(QStringLiteral("actionWhite"));
+        actionWhite->setCheckable(true);
+        actionQuit = new QAction(MainWindow);
+        actionQuit->setObjectName(QStringLiteral("actionQuit"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
@@ -87,9 +92,10 @@ public:
         plainTextEdit = new QPlainTextEdit(centralWidget);
         plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
         QFont font;
+        font.setFamily(QStringLiteral("Droid Sans Mono"));
         font.setPointSize(14);
-        font.setBold(true);
-        font.setWeight(75);
+        font.setBold(false);
+        font.setWeight(50);
         plainTextEdit->setFont(font);
         plainTextEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::IBeamCursor)));
         plainTextEdit->setMouseTracking(true);
@@ -134,6 +140,8 @@ public:
         menuFile->addAction(actionClose_Window);
         menuFile->addAction(actionClose_File);
         menuFile->addAction(actionClose_All);
+        menuFile->addSeparator();
+        menuFile->addAction(actionQuit);
         menuView->addAction(actionSyntex);
         menuView->addAction(menuColors->menuAction());
         menuColors->addAction(actionBlack);
@@ -154,6 +162,7 @@ public:
         actionSave_Ctrl_s->setText(QApplication::translate("MainWindow", "Save", 0));
         actionSave_Ctrl_s->setShortcut(QApplication::translate("MainWindow", "Ctrl+S", 0));
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As..", 0));
+        actionSave_As->setShortcut(QApplication::translate("MainWindow", "Ctrl+Shift+S", 0));
         actionNew_Window->setText(QApplication::translate("MainWindow", "New Window", 0));
         actionClose_Window->setText(QApplication::translate("MainWindow", "Close Window", 0));
         actionClose_File->setText(QApplication::translate("MainWindow", "Close File", 0));
@@ -161,6 +170,7 @@ public:
         actionSyntex->setText(QApplication::translate("MainWindow", "Syntex", 0));
         actionBlack->setText(QApplication::translate("MainWindow", "Black", 0));
         actionWhite->setText(QApplication::translate("MainWindow", "White", 0));
+        actionQuit->setText(QApplication::translate("MainWindow", "Quit", 0));
 #ifndef QT_NO_STATUSTIP
         plainTextEdit->setStatusTip(QString());
 #endif // QT_NO_STATUSTIP
