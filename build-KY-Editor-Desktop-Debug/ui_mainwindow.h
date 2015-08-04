@@ -59,6 +59,7 @@ public:
         actionNew_File_Ctrl_N->setObjectName(QStringLiteral("actionNew_File_Ctrl_N"));
         actionOpen_File_Ctrl_O = new QAction(MainWindow);
         actionOpen_File_Ctrl_O->setObjectName(QStringLiteral("actionOpen_File_Ctrl_O"));
+        actionOpen_File_Ctrl_O->setShortcutContext(Qt::WidgetWithChildrenShortcut);
         actionSave_Ctrl_s = new QAction(MainWindow);
         actionSave_Ctrl_s->setObjectName(QStringLiteral("actionSave_Ctrl_s"));
         actionSave_As = new QAction(MainWindow);
@@ -146,11 +147,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "KT Creator", 0));
-        actionNew_File_Ctrl_N->setText(QApplication::translate("MainWindow", "New File (Ctrl+N)", 0));
+        actionNew_File_Ctrl_N->setText(QApplication::translate("MainWindow", "New File", 0));
         actionNew_File_Ctrl_N->setShortcut(QApplication::translate("MainWindow", "Ctrl+N", 0));
-        actionOpen_File_Ctrl_O->setText(QApplication::translate("MainWindow", "Open File...(Ctrl+O)", 0));
+        actionOpen_File_Ctrl_O->setText(QApplication::translate("MainWindow", "Open File...", 0));
         actionOpen_File_Ctrl_O->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", 0));
-        actionSave_Ctrl_s->setText(QApplication::translate("MainWindow", "Save (Ctrl+S)", 0));
+        actionSave_Ctrl_s->setText(QApplication::translate("MainWindow", "Save", 0));
         actionSave_Ctrl_s->setShortcut(QApplication::translate("MainWindow", "Ctrl+S", 0));
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As..", 0));
         actionNew_Window->setText(QApplication::translate("MainWindow", "New Window", 0));
@@ -163,6 +164,7 @@ public:
 #ifndef QT_NO_STATUSTIP
         plainTextEdit->setStatusTip(QString());
 #endif // QT_NO_STATUSTIP
+        plainTextEdit->setPlainText(QString());
         menuFile->setTitle(QApplication::translate("MainWindow", "File(&F)", 0));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit(&E)", 0));
         menuView->setTitle(QApplication::translate("MainWindow", "View(&V)", 0));
