@@ -15,6 +15,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void setColor();
     void uiset();
+    void editComplete();
     QString path1;
     bool if_opened;
     ~MainWindow();
@@ -36,7 +37,18 @@ private slots:
     void on_actionSave_As_triggered();
 
 private:
+
     Ui::MainWindow *ui;
+protected:
+    //void keyPressEvent(QKeyEvent *e);
+};
+
+class plaintext{
+    public:
+    //void keyPressEvent(QKeyEvent *e);
+
+    private:
+
 };
 
 #endif // MAINWINDOW_H

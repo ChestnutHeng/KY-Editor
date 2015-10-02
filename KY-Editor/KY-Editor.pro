@@ -15,8 +15,10 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     colors.cpp \
-    files.cpp
+    files.cpp \
+    codeEditor.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    codeEditor.h
 
 FORMS    += mainwindow.ui

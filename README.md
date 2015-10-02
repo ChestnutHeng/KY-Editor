@@ -10,26 +10,26 @@ Qt 5.4.0
 ###Versions
 
 ###functions
-- [ ] File
-    - [ ] New File(ctrl+N)
-    - [ ] Open File...(ctrl+O)
-    - [ ] Save  (ctrl+s)
+- [x] File
+    - [x] New File(ctrl+N)
+    - [x] Open File...(ctrl+O)
+    - [x] Save  (ctrl+s)
     - [ ] Save As
     - [ ] New Window
     - [ ] Close Window
     - [ ] Close File
     - [ ] Close All
-- [ ] Edit
-    - [ ] Undo(ctrl+z)
-    - [ ] Redo(crrl+y)
-    - [ ] Cut
-    - [ ] Copy
-    - [ ] Paste
+- [x] Edit
+    - [x] Undo(ctrl+z)
+    - [x] Redo(ctrl+y)
+    - [x] Cut
+    - [x] Copy
+    - [x] Paste
     - [ ] Find
     - [ ] Replace
-- [ ] View
+- [x] View
     - [ ] Syntex
-    - [ ] Colors
+    - [x] Colors
 - [ ] Build
     - [ ] Build(ctrl+b)
     - [ ] Build&Run(ctrl+r)
@@ -38,6 +38,5 @@ Qt 5.4.0
     - [ ] BATScript support(ctrl+')
     - [ ] About...
 - [ ] Others
-    - [ ] AutoComple
-
+    - [ ] AutoComplie
 
