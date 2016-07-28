@@ -12,12 +12,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    QString path1;
+    bool if_opened;
+
     explicit MainWindow(QWidget *parent = 0);
     void setColor();
     void uiset();
     void editComplete();
-    QString path1;
-    bool if_opened;
     ~MainWindow();
 
 private slots:
@@ -25,14 +26,9 @@ private slots:
 
     void on_actionWhite_triggered();
 
-    void on_pushButton_clicked();
-
     void on_actionOpen_File_Ctrl_O_triggered();
 
     void on_actionSave_Ctrl_s_triggered();
-
-
-    void on_actionOpen_File_Ctrl_O_hovered();
 
     void on_actionSave_As_triggered();
 
@@ -41,14 +37,6 @@ private:
     Ui::MainWindow *ui;
 protected:
     //void keyPressEvent(QKeyEvent *e);
-};
-
-class plaintext{
-    public:
-    //void keyPressEvent(QKeyEvent *e);
-
-    private:
-
 };
 
 #endif // MAINWINDOW_H

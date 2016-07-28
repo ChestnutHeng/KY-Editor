@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    qDebug() << "Fuck" ;
     //codeEditor *plainTextEdit = new codeEditor(this);
     ui->setupUi(this);
     on_actionBlack_triggered();
@@ -34,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     wordList << "alpha" << "omega" << "omicron" << "zeta";
     QCompleter *completer = new QCompleter(wordList, this);
     completer->setCaseSensitivity(Qt::CaseInsensitive);
-        //ui -> plainTextEdit->setCompleter(completer);
+    //ui -> plainTextEdit->setCompleter(completer);
 
 }
 
