@@ -30,6 +30,7 @@ private:
     QTextCharFormat singleLineCommentFormat;
     QTextCharFormat paramFormat;
     QTextCharFormat valueFormat;
+    QTextCharFormat echoFormat;
 };
 
 

@@ -146,7 +146,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "KT Creator", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "KT Editor", 0));
         actionNew_File_Ctrl_N->setText(QApplication::translate("MainWindow", "New File", 0));
         actionNew_File_Ctrl_N->setShortcut(QApplication::translate("MainWindow", "Ctrl+N", 0));
         actionOpen_File_Ctrl_O->setText(QApplication::translate("MainWindow", "Open File...", 0));

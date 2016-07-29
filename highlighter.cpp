@@ -10,16 +10,17 @@ Highlighter::Highlighter(QTextDocument *parent)
     keywordFormat.setForeground(Qt::yellow);
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
-    keywordPatterns << "\\b[E|e]cho|ECHO\\b" << "\\bon|ON\\b" << "\\boff|OFF\\b"
-                    << "\\bpause|PAUSE\\b" << "\\bTITLE|title\\b" << "\\bERRORLEVEL|errorlevel\\b"
-                    << "\\bCOLOR|color\\b" << "\\bMODE|mode\\b" << "\\bGOTO|goto\\b"
-                    << "\\bfind|FIND\\b" << "\\bTYPE|type\\b" << "\\bASSOC|assoc\\b"
-                    << "\\bPUSHD|pushd\\b" << "\\bPOPD|popd\\b" << "\\bcall|CALL\\b"
-                    << "\\bset|SET\\b" << "\\bshift|SHIFT\\b" << "\\bif|IF\\b"
-                    << "\\belse:ELSE\\b" << "\\bEXIST|exist\\b" << "\\b(GEQ|EQU|NEQ|LSS|LEQ|GTR)\\b"
-                    << "\\bSETLOCAL|setlocal\\b" << "\\bATTRIB|attrib\\b" << "\\b(stdin|stdout|stderr)\\b"
+    keywordPatterns << "@?([E|e]cho|ECHO)\\b" << "\\b(on|ON|not|NOT|off|OFF)\\b" << "\\b(nul|NUL)\\b"
+                    << "\\b(pause|PAUSE)\\b" << "\\b(TITLE|title)\\b" << "\\b(ERRORLEVEL|errorlevel)\\b"
+                    << "\\b(COLOR|color)\\b" << "\\b(MODE|mode)\\b" << "\\b(GOTO|goto)\\b"
+                    << "\\b(find|FIND)\\b" << "\\(bTYPE|type)\\b" << "\\b(ASSOC|assoc)\\b"
+                    << "\\b(PUSHD|pushd)\\b" << "\\b(POPD|popd)\\b" << "\\b(call|CALL)\\b"
+                    << "\\b(set|SET)\\b" << "\\b(shift|SHIFT|del|DEL)\\b" << "\\b(if|IF)\\b"
+                    << "\\b(else:ELSE)\\b" << "\\b(EXIST|exist)\\b" << "\\b(GEQ|EQU|NEQ|LSS|LEQ|GTR)\\b"
+                    << "\\b(SETLOCAL|setlocal)\\b" << "\\b(ATTRIB|attrib)\\b" << "\\b(stdin|stdout|stderr)\\b"
                     << "\\b(cd|CD|dir|DIR|rd|RD|MD|md|ren|REN)\\b" << "\\bfor|FOR\\b" << "\\b(copy|COPY|move|MOVE|xcpoy|XCOPY)\\b"
-                    << "\\b(tree|TREE|time|TIME|date|DATE)\\b" << "\\b(cls|CLS|ping|PING)\\b" << "\\b(nul|NUL|exit|EXIT)\\b";
+                    << "\\b(tree|TREE|time|TIME|date|DATE)\\b" << "\\b(cls|CLS|ping|PING)\\b" << "\\b(exit|EXIT)\\b"
+                    << "(gcc|GCC|python|PYTHON|java|JAVA|python3)";
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegExp(pattern);
         rule.format = keywordFormat;
@@ -48,6 +49,17 @@ Highlighter::Highlighter(QTextDocument *parent)
     highlightingRules.append(rule);
     rule.pattern = QRegExp("REM [^\n]*");
     rule.format = singleLineCommentFormat;
+    highlightingRules.append(rule);
+
+    echoFormat.setFontItalic(true);
+    echoFormat.setForeground(Qt::gray);
+    rule.pattern = QRegExp("@?([E|e]cho|ECHO|=) [^\n>|&]+");
+    rule.format = echoFormat;
+    highlightingRules.append(rule);
+    echoFormat.setFontItalic(false);
+    echoFormat.setForeground(Qt::yellow);
+    rule.pattern = QRegExp("@?([E|e]cho|ECHO)( (off|on|OFF|ON))?");
+    rule.format = echoFormat;
     highlightingRules.append(rule);
 }
 
