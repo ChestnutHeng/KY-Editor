@@ -2,10 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <codeEditor.h>
+#include <ui_mainwindow.h>
 
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QMainWindow
 {
@@ -34,7 +33,8 @@ private slots:
 
 private:
 
-    Ui::MainWindow *ui;
+    Ui_MainWindow *ui;
+
 protected:
     //void keyPressEvent(QKeyEvent *e);
 };

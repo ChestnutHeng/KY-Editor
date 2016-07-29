@@ -22,18 +22,12 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui_MainWindow)
 {
-    //codeEditor *plainTextEdit = new codeEditor(this);
-    ui->setupUi(this);
+
+    ui ->setupUi(this);
     on_actionBlack_triggered();
-   // plainTextEdit -> zoomIn();
     uiset();
-    QStringList wordList;
-    wordList << "alpha" << "omega" << "omicron" << "zeta";
-    QCompleter *completer = new QCompleter(wordList, this);
-    completer->setCaseSensitivity(Qt::CaseInsensitive);
-    //ui -> plainTextEdit->setCompleter(completer);
 
 }
 
@@ -46,9 +40,9 @@ void MainWindow::uiset()
 {
     if_opened = false;
     statusBar() ;
-    ui->statusBar->showMessage(tr("GitHub,Inc."));
-    ui->plainTextEdit->addAction(ui->actionOpen_File_Ctrl_O);
-    ui->plainTextEdit->addAction(ui->actionSave_Ctrl_s);
-    ui->plainTextEdit->addAction(ui->actionSave_As);
-    //ui->actionOpen_File_Ctrl_O->setStatusTip(tr("Open an existing file"));
+    ui ->statusBar->showMessage(tr("GitHub,Inc."));
+    ui ->codeeditor->addAction(ui->actionOpen_File_Ctrl_O);
+    ui ->codeeditor->addAction(ui->actionSave_Ctrl_s);
+    ui ->codeeditor->addAction(ui->actionSave_As);
+    ui->actionOpen_File_Ctrl_O->setStatusTip(tr("Open an existing file"));
 }

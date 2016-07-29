@@ -28,31 +28,30 @@ void MainWindow::on_actionOpen_File_Ctrl_O_triggered()
 
         }
         QTextStream file_stream(&file_path);
-        ui-> plainTextEdit -> setPlainText(file_stream.readAll());
+        ui ->codeeditor -> setPlainText(file_stream.readAll());
         file_path.close();
 
     }else{
-          QMessageBox::warning(this,tr("ReadFile"),tr("The Path haven't been selected."));
+          //QMessageBox::warning(this,tr("ReadFile"),tr("The Path haven't been selected."));
     }
 }
 
 
 void MainWindow::on_actionSave_Ctrl_s_triggered()
 {
-    if(!path1.isEmpty()){
-        QFile file_path(path1);
-        if(!file_path.open(QIODevice::WriteOnly|QIODevice::Text)){
-                on_actionSave_As_triggered();
-                return;
-        }
-        QTextStream file_stream(&file_path);
-        file_stream << ui->plainTextEdit-> toPlainText();
-        file_path.close();
-
-    }else{
-          path1 = QFileDialog::getSaveFileName(this,"Save...",".",tr("Bat Files(*.bat);;TextFiles(*.txt);;All Files(*.*)"));
-          on_actionSave_Ctrl_s_triggered();
+    if(path1.isEmpty()){
+        path1 = QFileDialog::getSaveFileName(this,"Save...",".",tr("Bat Files(*.bat);;TextFiles(*.txt);;All Files(*.*)"));
+        if(path1.isEmpty()) return;
     }
+    QFile file_path(path1);
+    if(!file_path.open(QIODevice::WriteOnly|QIODevice::Text)){
+            QMessageBox::warning(this,tr("ReadFile"),tr("The Path is not valid"));
+            return;
+    }
+
+    QTextStream file_stream(&file_path);
+    file_stream << ui ->codeeditor-> toPlainText();
+    file_path.close();
 }
 
 void MainWindow::on_actionSave_As_triggered()
@@ -65,7 +64,7 @@ void MainWindow::on_actionSave_As_triggered()
                return;
        }
        QTextStream file_stream(&file_path);
-       file_stream << ui->plainTextEdit-> toPlainText();
+       file_stream << ui ->codeeditor-> toPlainText();
        file_path.close();
 
    }else{

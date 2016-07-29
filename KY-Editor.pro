@@ -16,9 +16,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     colors.cpp \
     files.cpp \
-    codeEditor.cpp
+    codeEditor.cpp \
+    highlighter.cpp
 
 HEADERS  += mainwindow.h \
-    codeEditor.h
+    codeEditor.h \
+    ui_mainwindow.h \
+    highlighter.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    mainwindow.ui

@@ -1,14 +1,24 @@
 #ifndef CODEEDITOR_H
 #define CODEEDITOR_H
 #include <QPlainTextEdit>
+#include <QTextEdit>
+#include "highlighter.h"
 
-class codeEditor :private QPlainTextEdit{
+namespace Ui {
+class codeEditor;
+}
+
+
+class codeEditor :public QPlainTextEdit{
     Q_OBJECT
 
 public:
-    codeEditor(QWidget *parent = 0);
-protected:
+    codeEditor();
+    ~codeEditor();
+    void setupUi();
 
+protected:
+    Highlighter *highlighter;
 
 };
 
