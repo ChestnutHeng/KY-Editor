@@ -1,13 +1,19 @@
+标签（空格分隔）： Git_Readme
 #KY Editor
 A GUI Editor having basic fuction to edit .bat scripts in windows.
 
-*If  you have any questions,contact to chestnutheng@gmail.com.*
+*If  you have any questions,contact to chestnutheng@hotmail.com.*
 
 ---
 ###Development environment
 Qt 5.4.0
 
 ###Versions
+
+>* 1.0 add file action
+    * 1.1 add themes
+>* 2.0 Rebuild
+    * 2.1 Add highlight
 
 ###functions
 - [x] File
@@ -38,5 +44,6 @@ Qt 5.4.0
     - [ ] BATScript support(ctrl+')
     - [ ] About...
 - [ ] Others
-    - [ ] AutoComplie
+    - [ ] AutoComplete
+    - [z] HighLight
 
