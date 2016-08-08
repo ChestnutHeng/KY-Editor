@@ -45,5 +45,5 @@ Qt 5.4.0
     - [ ] About...
 - [ ] Others
     - [ ] AutoComplete
-    - [z] HighLight
+    - [x] HighLight
 
