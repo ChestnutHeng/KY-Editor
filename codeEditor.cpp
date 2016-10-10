@@ -7,7 +7,7 @@
 codeEditor::codeEditor(){
     setObjectName(QStringLiteral("codeeditor"));
     QFont font;
-    font.setFamily(QStringLiteral("WenQuanYi Micro Hei Mono"));
+    font.setFamily(QStringLiteral("Mono Space"));
     font.setPointSize(14);
     font.setBold(false);
     font.setWeight(50);

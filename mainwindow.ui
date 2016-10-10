@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>KT Editor</string>
+   <string>KY Editor</string>
   </property>
   <property name="documentMode">
    <bool>false</bool>
@@ -30,9 +30,10 @@
        <widget class="QPlainTextEdit" name="plainTextEdit">
         <property name="font">
          <font>
-          <family>WenQuanYi Micro Hei Mono</family>
+          <family>Monospace</family>
           <pointsize>14</pointsize>
           <weight>50</weight>
+          <italic>false</italic>
           <bold>false</bold>
          </font>
         </property>
@@ -69,7 +70,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>25</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
